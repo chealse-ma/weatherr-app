@@ -2,7 +2,7 @@ body {
   background-color: rgb(216, 164, 216);
 }
 
-weather-app {
+.weatherr-app {
   background-color: aliceblue;
   max-width: 600px;
   margin: 0 auto;
