@@ -21,3 +21,13 @@ body {
   padding: 15px;
   font-size: 15px;
 }
+
+.search-form-button {
+  background-color: rgb(210, 198, 220);
+  padding: 20px;
+  border: none;
+  border-radius: 5px;
+  color: antiquewhite;
+  margin-left: 5px;
+  font-size: 15px;
+}
