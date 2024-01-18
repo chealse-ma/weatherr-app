@@ -35,3 +35,7 @@ header {
   margin-left: 5px;
   font-size: 15px;
 }
+footer {
+  border-top: 1px solid rgb(180, 158, 180);
+  padding: 20px 0;
+}
