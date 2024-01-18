@@ -38,4 +38,23 @@ header {
 footer {
   border-top: 1px solid rgb(180, 158, 180);
   padding: 20px 0;
+  text-align: center;
+  font-size: 10px;
+}
+.weather-app-data {
+  display: flex;
+  justify-content: space-between;
+}
+.weather-app-city {
+  margin: 0;
+  font-size: 38px;
+  line-height: 45px;
+}
+.weather-app-details {
+  font-size: 15px;
+  line-height: 15px;
+  color: rgb(180, 158, 180);
+}
+.weather-app-details strong {
+  color: rgb(74, 74, 152);
 }
