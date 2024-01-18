@@ -1,12 +1,12 @@
 body {
-  background-color: rgb(216, 164, 216);
+  background-color: rgb(180, 158, 180);
 }
 
 .weatherr-app {
-  background-color: aliceblue;
+  background-color: whitesmoke;
   max-width: 600px;
   margin: 0 auto;
   padding: 35px;
-  box-shadow: 0 30px 50px aliceblue;
+  box-shadow: 0 20px 400px aliceblue;
   border-radius: 10px;
 }
