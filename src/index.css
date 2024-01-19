@@ -8,70 +8,75 @@ body {
   font-family: "IBM Plex Sans", sans-serif;
   min-height: 100vh;
 }
-
-.container {
-  margin: 30px 120px;
-  padding: 20px;
-  color: #ca63f4;
-  border-radius: 5px;
-  border: 1px solid #ffdac3;
-  background-color: #fff4dd;
-  box-shadow: rgba(239, 132, 240, 0.799) 0px 30px 60px -12px;
+a {
+  color: #c163bc;
 }
 
-.weatherApp {
-  background: rgba(247, 247, 247, 0.6);
-  border-radius: 10px;
-  padding: 60px auto;
-  max-width: 700px;
-  height: 80%;
-  margin: 40px auto;
+header {
+  border-bottom: 1px solid #dadada;
+  padding: 0 0 30px 0;
 }
 
-.cityInput {
-  background: rgba(247, 247, 247, 0.8);
-  width: 300px;
-  padding: 20px;
+footer {
+  border-top: 1px solid #dadada;
+  padding: 30px 0 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: #beb2b2;
+}
+
+.search-field {
+  background-color: #e7eaf6;
   border: none;
-  border-radius: 5px;
-  margin-top: 60px;
-  font-size: 20px;
+  border-radius: 6px;
+  width: 80%;
+  padding: 15px 30px;
+  font-size: 16px;
 }
 
-.cityButton {
-  font-size: 20px;
-  color: rgb(242, 242, 242);
-  padding: 12px;
+.search-button {
+  background-color: #dadada;
+  padding: 15px 30px;
   border: none;
-  background: rgba(255, 192, 253, 0.8);
+  border-radius: 6px;
+  color: white;
+  margin-left: 5px;
+  font-size: 16px;
 }
 
-.cityButton:hover {
-  cursor: pointer;
-  background: rgba(255, 192, 253, 0.8);
+.city {
+  margin: 0;
+  font-size: 38px;
+  line-height: 48px;
+  padding: 20px;
+  color: #38598b;
 }
 
-.currentCity {
-  margin: 45px;
-  color: black;
-  font-size: 30px;
-  line-height: 30px;
-  text-align: center;
+.temperature {
+  color: #d28ecb;
+  font-weight: bold;
+  font-size: 45px;
+  padding: 25px;
+  display: flex;
+  line-height: 70px;
 }
-
-.currentTemp {
-  font-size: 80px;
+.weather-details {
+  font-size: 16px;
+  line-height: 20px;
+  color: gray;
+  padding: 15px;
 }
-
-.currentConditions {
-  color: rgb(158, 171, 211);
-  text-align: center;
-  line-height: 30px;
-  font-size: 18px;
+.weather-icon {
+  width: 88px;
+  height: 88px;
 }
-.forecast {
-  list-style: none;
-  text-align: center;
+.weather-app-data {
   display: flex;
   justify-content: space-between;
+}
+.humidity {
+  color: #38598b;
+}
+.wind-speed {
+  color: #38598b;
 }
