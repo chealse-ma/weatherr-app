@@ -1,10 +1,22 @@
 body {
-  background-color: rgb(169, 136, 158);
+  background: linear-gradient(
+    44.8deg,
+    rgba(255, 155, 248, 0.8) -53.1%,
+    rgba(255, 221, 136, 0.28) 49%
+  );
+  font-family: "Barlow Condensed", sans-serif;
   font-family: "IBM Plex Sans", sans-serif;
+  min-height: 100vh;
 }
-header {
-  border-bottom: 1px solid rgb(169, 136, 158);
-  padding: 20px 0;
+
+.container {
+  margin: 30px 120px;
+  padding: 20px;
+  color: #ca63f4;
+  border-radius: 5px;
+  border: 1px solid #ffdac3;
+  background-color: #fff4dd;
+  box-shadow: rgba(239, 132, 240, 0.799) 0px 30px 60px -12px;
 }
 
 .weatherApp {
