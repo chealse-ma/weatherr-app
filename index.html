@@ -14,39 +14,31 @@
     <script src="src/index.js"></script>
     <title>Chealse weather app</title>
   </head>
-  <body>
-    <div class="weather-app">
-      <header>
-        <form class="search-form" id="search-form">
-          <input
-            type="search"
-            placeholder="Enter a city.."
-            required
-            id="search-form-input"
-            class="search-form-input"
-          />
-          <input type="submit" value="Search" class="search-form-button" />
+ <body>
+    <div class="weatherApp">
+        <form id="city-form">
+            <label for="enterCity"></label>
+            <input type="text" id="enterCity" placeholder="Enter a city..." required class="cityInput">
+            <input type="submit" value="Search" class="cityButton">
         </form>
-      </header>
-      <main>
-        <div class="weather-app-data">
-          <div>
-            <h1 class="weather-app-city" id="city">Paris</h1>
-            <p class="weather-app-details">
-              <span id="time"></span>,
-              <span id="description"></span>
-              <br />
-              Humidity: <strong id="humidity"></strong>, Wind:
-              <strong id="wind-speed"></strong>
+
+        <header class="currentCity">
+            <h1 id="cityValue">London/h1>
+            <span id="icon">
+            </span>
+            <p class="currentTemp" id="tempValue">
             </p>
-          </div>
-          <div class="weather-app-temperature-container">
-            <div class="weather-app-icon">☁️</div>
-            <div class="weather-app-temperature" id="temperature">12°C</div>
-            <div class="weatehr-app-unit">°C</div>
-          </div>
-        </div>
-      </main>
+        </header>
+        <section>
+            <div class="currentConditions">
+                <p>
+                    <span id="current-date"></span>, <span id="description"></span>
+                    <br>
+                    Humidity: <strong id="humidity"></strong>Wind: <strong id="windSpeed"></strong>
+                </p>
+            </div>
+
+        </section>
 
       <footer>
         This project was coded by
