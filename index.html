@@ -12,33 +12,40 @@
     <title>Chealse weather app</title>
   </head>
 <body>
-    <div class="main">
-    <header>
+     <title>Weather App</title>
+  </head>
+  <body>
+    <div class="weather-app">
+      <header>
         <form class="search-form" id="search-form">
-            <input type="search" placeholder="Enter a city..." required class="search-field" id="search-form-input" />
-            <input type="submit" value ="search" class="search-button"/>
+          <input
+            type="search"
+            placeholder="Enter a city..."
+            class="search-form-input"
+            id="search-form-input"
+          />
+          <input type="submit" value="Search" class="search-form-button" />
         </form>
-    </header>
-    <main>
+      </header>
+      <main>
         <div class="weather-app-data">
-        <div>
-    <h1 class="city" id="city"></h1>
-    <p class="weather-details">
-       <span id="time">,</span> <span id="description"></span>
-        <br>
-        Humidity: <strong class="humidity" id="humidity"></strong>, Wind: <strong class="wind-speed" id="wind"></strong>
-    </p>
-</div>
-<div class="temperature">
-    <div  id="weather-icon">
-    </div>
-    <div class="weather-temperature" id="weather-temperature"> </div>
-    <div class="weather-unit">°C</div>
-</div>
-</div>
-    </main>
-    </main>
-    </br>
+          <div>
+            <h1 class="weather-app-city" id="weather-app-city"></h1>
+            <p class="weather-app-details">
+              <span id="time"></span>, <span id="description"></span>
+              <br />
+              Humidity: <strong id="humidity"></strong>, Wind:
+              <strong id="wind-speed"></strong>
+            </p>
+          </div>
+          <div class="weather-app-temperature-container">
+            <div id="icon"></div>
+            <div class="weather-app-temperature" id="temperature"></div>
+            <div class="weather-app-temperature-unit">°C</div>
+          </div>
+        </div>
+        <div class="weather-forecast" id="forecast"></div>
+      </main>
     <footer>
         This project was coded by
         <a href="https://github.com/chealse-ma" target="_blank"> chealse</a>, is
