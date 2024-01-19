@@ -11,33 +11,36 @@
     <script src="src/index.js"></script>
     <title>Chealse weather app</title>
   </head>
- <body>
-    <div class="weatherApp">
-        <form id="city-form">
-            <label for="enterCity"></label>
-            <input type="text" id="enterCity" placeholder="Enter a city..." required class="cityInput">
-            <input type="submit" value="Search" class="cityButton">
-        </form>
-
-        <header class="currentCity">
-            <h1 id="cityValue">London/h1>
-            <span id="icon">
-            </span>
-            <p class="currentTemp" id="tempValue">
-            </p>
-        </header>
-        <section>
-            <div class="currentConditions">
-                <p>
-                    <span id="current-date"></span>, <span id="description"></span>
-                    <br>
-                    Humidity: <strong id="humidity"></strong>Wind: <strong id="windSpeed"></strong>
-                </p>
-            </div>
-
-        </section>
-
-      <footer>
+<body>
+    <div class="container">
+    <main>
+          <form action="search" id="city-form">
+            <input
+              type="text"
+              name="name"
+              id="typed-city"
+              required
+              placeholder="Enter a city"
+              class = "search-form"
+            />
+            <button type="submit" class="btn btn-light">Search</button>
+          </form>
+          <h2>
+            It's 
+            <span class="current-temp"><span id="current-temp">22</span>°C</span> 
+             in
+            <span id="displayedcity">London</span>.
+          </h2>
+          <h3>
+            <div id="icon"></div>
+            <span id="description">Rainy</span> 💨 wind: <span id="wind-speed">3.2</span> km/sec
+          </br>
+            <span id="time"></span>
+          </h3>
+          <div class="weather-forecast" id="forecast"></div>
+    </main>
+    </br>
+    <footer>
         This project was coded by
         <a href="https://github.com/chealse-ma" target="_blank"> chealse</a>, is
         <a href="https://github.com/chealse-ma/weatherr-app" target="_blank"
