@@ -8,44 +8,64 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&family=IBM+Plex+Sans:wght@300&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="src/index.css" />
-    <script src="src/index.js"></script>
-    <title>Chealse weather app</title>
-  </head>
-<body>
-     <title>Weather App</title>
-  </head>
-  <body>
-    <div class="weather-app">
-      <header>
-        <form class="search-form" id="search-form">
-          <input
-            type="search"
-            placeholder="Enter a city..."
-            class="search-form-input"
-            id="search-form-input"
-          />
-          <input type="submit" value="Search" class="search-form-button" />
-        </form>
-      </header>
-      <main>
-        <div class="weather-app-data">
-          <div>
-            <h1 class="weather-app-city" id="weather-app-city"></h1>
-            <p class="weather-app-details">
-              <span id="time"></span>, <span id="description"></span>
-              <br />
-              Humidity: <strong id="humidity"></strong>, Wind:
-              <strong id="wind-speed"></strong>
-            </p>
-          </div>
-          <div class="weather-app-temperature-container">
-            <div id="icon"></div>
-            <div class="weather-app-temperature" id="temperature"></div>
-            <div class="weather-app-temperature-unit">°C</div>
-          </div>
-        </div>
-        <div class="weather-forecast" id="forecast"></div>
-      </main>
+     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+</head>
+
+<body class="warm cool">
+
+
+ <div id="container" class="warm cool">
+  <h1 class="center-align"><span id="city"></span> </h1>
+  <h2><span id="country"></span></h2>
+  <header>
+
+
+   <div class="flex-temperature">
+    <div id="icon"></div>
+    <div id="current-temperature">
+
+    </div>
+    <div class="center-align" id="units-current-temp"><strong>˚C</strong></div>
+   </div>
+   <div id="weather-description">
+   </div>
+   <br />
+   <div class="center-align" id="feels-like">
+    <em><span id="feels-like-text">Feels like:</span></em>
+    <strong><span id="feels-like-temperature"></span></strong>
+    <span class="units-metric" id="units-feels-like">˚C</span>
+    <span id="emoji">🥶</span>
+   </div>
+   <br />
+
+   <div id="weather-data">
+    <div class="wind-speed"><span>Wind: </span><strong><span id="wind-speed" class="units-metric"></strong>m/s<span>
+    </div>
+    <div class="humidity"><span>Humidity: </span><strong><span id="humidity"></strong>%<span></div>
+   </div>
+   <br />
+   <div id="last-update">
+    Last updated:<span id="last-update-time"></span>
+   </div>
+   <br />
+   <div id="chronology">
+    <span id="day">
+    </span>,
+    <span id="time">
+    </span>
+   </div>
+   <br />
+  </header>
+
+
+
+  <main>
+   <form id="form">
+    <input type="text" required placeholder="Enter another city..." id="city-input">
+    <input type="submit" id="city-submit" value="Search">
+   </form>
+  </main>
+  <br />
     <footer>
         This project was coded by
         <a href="https://github.com/chealse-ma" target="_blank"> chealse</a>, is
