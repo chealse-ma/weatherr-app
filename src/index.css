@@ -28,7 +28,7 @@ footer,
 
 #container.cool {
   max-width: 640px;
-  background: linear-gradient(270deg, #a16bba 0%, #aa51cd 50%);
+  background: linear-gradient(270deg, #8c4f96 0%, #8a24b2 50%);
   margin: 0 auto;
   border-radius: 10px;
   padding: 10px 30px 30px 10px;
@@ -37,7 +37,7 @@ footer,
 
 #container.warm {
   max-width: 600px;
-  background: linear-gradient(90deg, #a970bd64 0%, #6b458278 50%);
+  background: linear-gradient(90deg, #6354af64 0%, #6051ac78 50%);
   margin: 0 auto;
   border-radius: 10px;
   padding: 10px 30px 30px 10px;
