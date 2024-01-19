@@ -69,9 +69,9 @@ function displayCurrentWeatherValues(response) {
   );
   let currentTemperature = Math.round(response.data.temperature.current);
   currentTemperatureElement.innerHTML = currentTemperature;
-  let feelsLikeTempElement = document.querySelector("#feels-like-temperature");
-  feelsLikeTemp = Math.round(response.data.temperature.feels_like);
-  feelsLikeTempElement.innerHTML = feelsLikeTemp;
+  let weatherIsTempElement = document.querySelector("#feels-like-temperature");
+  weatherIsTempElement = Math.round(response.data.temperature.feels_like);
+  weatherIsTempElement.innerHTML = feelsLikeTemp;
   let windSpeedElement = document.querySelector("#wind-speed");
   let windSpeed = Math.round(response.data.wind.speed);
   windSpeedElement.innerHTML = windSpeed;
