@@ -1,49 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/style.css">
-    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-    <title>Weather App</title>
-</head>
-<body>
-    <div class="weather-app">
-    <header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>weatherr app</title>
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+      <div class="weather-app">
+      <header>
         <form class="search-form" id="search-form">
-            <input type="search" 
-            placeholder="Enter a city.."
+          <input
+            type="search"
+            placeholder="Enter a city"
             required
+            class="search-form-input"
             id="search-form-input"
-            class="search-form-input">
-            <input type="submit" value="Search" class="search-form-button">
+          />
+          <input type="submit" value="Search" class="search-form-button" />
         </form>
-    </header>
-    <main>
-        <div class="weather-app-data">
-            <div>
-               <h1 class="weather-app-city" id="city"></h1>
-               <p class="weather-app-details">
-                  <h2 id="time"></h2>
-                  <span id="description"></span><br>
-                  Humidity: <strong id="humidity"></strong><br>
-                  Wind: <strong id="wind-speed"></strong>
-               </p>
+      </header>
+      <main>
+        <div class="current-weather-data">
+          <div>
+            <h1 id="city"></h1>
+            <p class="current-date">
+              <span id="current-day"></span>
+              <span id="current-time"></span>,
+              <span id="current-condition"></span>
+            </p>
+          </div>
+          <div class="current-temperature">
+            <div id="current-weather-icon"></div>
+            <div class="current-temperature-value" id="temperature"></div>
+            <div class="current-temperature-unit">°C</div>
+          </div>
+        </div>
+      </main>
+      <section>
+        <div class="week-forecast-section">
+          <h4>5-DAY FORECAST</h4>
+            <div class="row" id="forecast">
             </div>
-            <div class="weather-app-temperature-container">
-               <div id="icon"></div>
-               <div class="weather-app-temperature" id="temperature"></div>
-               <div class="weather-app-unit">˚C</div>
-            </div>
-            
-         </div>
-         <div class="weather-forecast" id="forecast">
-            
-         </div>
-</main>
+        </div>
+      </section>
+      <section>
+        <div class="air-conditions-container">
+          <h4>AIR CONDITIONS</h4>
+          <div class="air-conditions-details">
+            <p class="air-condition-heading">
+              Humidity
+              <br />
+              <strong class="air-data" id="humidity"></strong>
+            </p>
+            <p class="air-condition-heading">
+              Wind Speed
+              <br />
+              <strong class="air-data" id="wind-speed"></strong>
+            </p>
+          </div>
+        </div>
+      </section>
     <footer>Coded by 
         <a href="https://github.com/chealse-ma" target="_blank">Chealse Mafaune</a>, open-sourced  
          <a href="https://github.com/chealse-ma/weatherr-app" target="_blank">on Github</a>
