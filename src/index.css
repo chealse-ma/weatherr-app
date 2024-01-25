@@ -3,12 +3,12 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  background-color: #dec7e6;
+  background-color: #7a65ba;
   margin-top: 100px;
 }
 
 a {
-  color: #cfb4d7;
+  color: #b1cec7;
 }
 
 header {
@@ -41,7 +41,7 @@ header {
 }
 
 .search-form-button {
-  background-color: #4f7e96;
+  background-color: #826e95;
   color: white;
   margin-left: 5px;
   border: none;
@@ -84,6 +84,10 @@ h2 {
 .weather-app-temperature-container {
   display: flex;
   align-items: center;
+}
+
+img.weather-illustration {
+  margin-left: 20px;
 }
 
 .weather-app-icon {
@@ -158,10 +162,12 @@ footer {
 
 .weather-forecast-temperature-min {
   opacity: 0.5;
+  text-align: center;
 }
 
 .weather-forecast-temperatures {
   font-size: 13px;
   display: flex;
   justify-content: space-evenly;
+  text-align: center;
 }
