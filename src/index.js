@@ -140,3 +140,48 @@ updateDayAndTime();
 let searchInputElement = document.querySelector("#form");
 
 searchInputElement.addEventListener("submit", handleSearchInput);
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+
+  let weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  return weekdays[date.getDay()];
+}
+
+function displayForecast(response) {
+  console.log(response.data);
+
+  let forecastElement = document.querySelector("#weather-forecast");
+
+  let forecastHtml = "";
+
+  response.data.daily.forEach(function (weekday, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `<div class="forecast-day">
+      <div class="forecast-date">${formatDay(weekday.time)}</div>
+   
+      <img src="${weekday.condition.icon_url}" class="forecast-icon"  />
+     
+      <div class="forecast-temperatures">
+        <div class="highest-temperature">${Math.round(
+          weekday.temperature.maximum
+        )}°</div>
+        <div class="lowest-temperature">${Math.round(
+          weekday.temperature.minimum
+        )}°</div>
+      </div>
+  </div>`;
+    }
+  });
+
+  forecastElement.innerHTML = forecastHtml;
+}
+
+function getForecast(city) {
+  let apiKey = "b4695dbeo3231b4ta37cdcd77c20d1fa";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}

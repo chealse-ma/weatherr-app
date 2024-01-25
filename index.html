@@ -66,27 +66,25 @@
    </form>
   </main>
   <br />
-  <div class="waether-forecast">
-    <div class="row">
-      <div class="col-2">
-        <div class="weather-forecast-date">
-        Thu
+   <div class="weather-data">
+          <div>
+            <h1 class="city-name" id="city-name"></h1>
+            <p class="weather-conditions">
+              <span id="current-time"></span>
+              <span id="weather-description"></span>
+              <br />
+              Humidity: <strong id="humidity"></strong> Windspeed:
+              <strong id="windspeed"></strong>
+            </p>
+          </div>
+          <div class="temperature-container">
+            <div id="icon"></div>
+            <div class="current-temperature" id="current-temperature"></div>
+            <div class="weather-unit">°C</div>
+          </div>
         </div>
-        <img src="https://chealse-weather-app.netlify.app/"
-       alt=""
-       width="36"
-          />
-          <div class="weather-forecast-temperature"></div>
-      
-          <span class="weather-forecast-temperature-max">
-          18°
-          </span>
-          <span class="weather-forecast-temperature-min">
-          12°
-          </span>
-        </div>
-    </div>
-  </div>
+
+        <div class="forecast-container" id="weather-forecast"></div>
 
     <footer>
         This project was coded by
