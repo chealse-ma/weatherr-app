@@ -123,3 +123,21 @@ footer {
   font-size: 14px;
   font-family: "Courier New", Courier, monospace;
 }
+
+weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+}
+weather-forecast-date {
+  font-size: 16px;
+  color: rgb(183, 181, 181);
+  opacity: 0.6;
+}
+
+weather-forecast-temperature-min {
+  opacity: 0.6;
+}
+
+weather-forecaste-temperature {
+  font-size: 13px;
+}
