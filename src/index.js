@@ -1,145 +1,69 @@
-function getDayName(dayIndex) {
-  const days = [
+function updateWeatherData(response) {
+  let cityElement = document.querySelector("#city-name");
+  cityElement.innerHTML = response.data.city;
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class= "weather-icon"></img>`;
+
+  let tempElement = document.querySelector("#current-temperature");
+  let temperature = response.data.temperature.current;
+  tempElement.innerHTML = Math.round(temperature);
+
+  let timeElement = document.querySelector("#current-time");
+  let timeStamp = new Date(response.data.time * 1000);
+  timeElement.innerHTML = formatDate(timeStamp);
+
+  let descriptionElement = document.querySelector("#weather-description");
+  descriptionElement.innerHTML = response.data.condition.description;
+
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+
+  let windSpeedElement = document.querySelector("#windspeed");
+  windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
+
+  getForecast(response.data.city);
+}
+
+function formatDate(timeStamp) {
+  let minutes = timeStamp.getMinutes();
+  let hours = timeStamp.getHours();
+  let weekdays = [
     "Sunday",
     "Monday",
-    "Tuesday",
+    "Tuseday",
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday",
+    "Satirday",
   ];
-  return days[dayIndex];
-}
-function updateDayAndTime() {
-  let now = new Date();
-  let hours = String(now.getHours()).padStart(2, "0");
-  let minutes = String(now.getMinutes()).padStart(2, "0");
-  let seconds = String(now.getSeconds()).padStart(2, "0");
-  let dayIndex = now.getDay();
-  let dayName = getDayName(dayIndex);
 
-  let timeString = `${hours}:${minutes}:${seconds}`;
-  let dayString = `${dayName}`;
+  let day = weekdays[timeStamp.getDay()];
+  return `${day} ${hours}:${minutes}`;
 
-  let currentTimeElement = document.querySelector("#time");
-  let currentDayElement = document.getElementById("day");
-  currentTimeElement.innerHTML = timeString;
-  currentDayElement.innerHTML = dayString;
-}
-
-function changeTheme(response) {
-  let currentTemp = response.data.temperature.current;
-  let container = document.querySelector("#container");
-
-  if (currentTemp < 15) {
-    document.body.classList.remove("warm");
-    container.classList.remove("warm");
-    document.body.classList.add("cool");
-    container.classList.add("cool");
-  } else {
-    document.body.classList.remove("cool");
-    container.classList.remove("cool");
-    document.body.classList.add("warm");
-    container.classList.add("warm");
+  if (minutes > 10) {
+    minutes = `0${minutes}`;
   }
 }
 
-function changeIcon(response) {
-  let iconUrl = response.data.condition.icon_url;
-  let iconElement = document.querySelector("#icon");
-  iconElement.innerHTML = `<img src ="${iconUrl}" />`;
-  changeTheme(response);
+function searchCityName(city) {
+  let apiKey = "b4695dbeo3231b4ta37cdcd77c20d1fa";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(updateWeatherData);
 }
 
-function changeEmoji(response) {
-  let emojiElement = document.querySelector("#emoji");
-  let currentTemp = response.data.temperature.feels_like;
-  if (currentTemp < 5) {
-    emojiElement.innerHTML = "🙃";
-  } else if (currentTemp < 24) {
-    emojiElement.innerHTML = "😍";
-  } else {
-    emojiElement.innerHTML = "🥵";
-  }
-  changeIcon(response);
-}
-function displayCurrentWeatherValues(response) {
-  let currentTemperatureElement = document.querySelector(
-    "#current-temperature"
-  );
-  let currentTemperature = Math.round(response.data.temperature.current);
-  currentTemperatureElement.innerHTML = currentTemperature;
-  let weatherIsTempElement = document.querySelector("#feels-like-temperature");
-  weatherIsTempElement = Math.round(response.data.temperature.feels_like);
-  weatherIsTempElement.innerHTML = feelsLikeTemp;
-  let windSpeedElement = document.querySelector("#wind-speed");
-  let windSpeed = Math.round(response.data.wind.speed);
-  windSpeedElement.innerHTML = windSpeed;
-  let humidityElement = document.querySelector("#humidity");
-  let humidity = response.data.temperature.humidity;
-  humidityElement.innerHTML = humidity;
-  let descriptionElement = document.querySelector("#weather-description");
-  let description = response.data.condition.description;
-  descriptionElement.innerHTML = description;
-  changeEmoji(response);
-}
-
-function displayLastUpdate(response) {
-  let lastUpdateElement = document.querySelector("#last-update-time");
-  let timeStamp = response.data.time;
-  let date = new Date(timeStamp * 1000);
-
-  let dateString = date.toLocaleDateString();
-  let timeString = date.toLocaleTimeString();
-  let lastUpdateTimeAndDate = ` ${dateString} @ ${timeString}`;
-  lastUpdateElement.innerHTML = lastUpdateTimeAndDate;
-}
-
-function handleError(response) {
-  let cityElement = document.querySelector("#city");
-  let countryElement = document.querySelector("#country");
-  cityElement.innerHTML = "Check for typos...";
-  countryElement.innerHTML = "☺️";
-  let mainContent = document.querySelector("header");
-  mainContent.style.display = "none";
-}
-
-function displayCity(response) {
-  let city = response.data.city;
-  let country = response.data.country;
-  let cityElement = document.querySelector("#city");
-  let countryElement = document.querySelector("#country");
-  let mainContent = document.querySelector("header");
-
-  if (!city) {
-    handleError(response);
-  } else {
-    cityElement.innerHTML = city;
-    countryElement.innerHTML = country.toUpperCase();
-    mainContent.style.display = "block";
-    displayCurrentWeatherValues(response);
-    displayLastUpdate(response);
-  }
-}
-function getWeatherData(cityValue) {
-  let apiKey = "044f639212f8b63toca06640b723a6aa";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityValue}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayCity);
-}
-function handleSearchInput(event) {
+function updateCityName(event) {
   event.preventDefault();
-
-  let cityElementInput = document.querySelector("#city-input");
-  let cityValue = cityElementInput.value;
-  getWeatherData(cityValue);
+  let searchInput = document.querySelector("#search-form-input");
+  let cityElement = document.querySelector("#city-name");
+  cityElement.innerHTML = searchInput.value;
+  searchCityName(searchInput.value);
 }
 
-getWeatherData("Paris");
-setInterval(updateDayAndTime, 1000);
-updateDayAndTime();
-let searchInputElement = document.querySelector("#form");
+let searchFormElement = document.querySelector("#search-form");
+searchFormElement.addEventListener("submit", updateCityName);
 
-searchInputElement.addEventListener("submit", handleSearchInput);
+searchCityName("Edinburgh");
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
